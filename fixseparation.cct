@@ -1,0 +1,8 @@
+begin               >                   store(nul)
+                                        use(main)
+
+group(main)
+':'                 >                   endstore dup use(end)
+
+group(end)
+endfile             >                   nl nl nl dup
