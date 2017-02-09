@@ -54,3 +54,4 @@ if %group%==classic (
   echo rem ==================== %~1 functions =====================  >> %pubout%
   echo. >>  %pubout%
 )
+goto :eof
