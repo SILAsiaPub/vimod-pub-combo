@@ -1,3 +1,4 @@
+@echo off
 :: Title: pub.cmd
 :: Title Description: VimodPub batch file with menus and tasklist processing
 :: Author: Ian McQuay
