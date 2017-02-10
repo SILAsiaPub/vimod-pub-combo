@@ -2,11 +2,13 @@
 set type=%1
 set depreciated=%2
 if not defined type echo You must specify classic, global or solo as the first parameter. & goto :eof
-set pubout=tests\pub-%type%.cmd
+set pubout=tests\pub-%type%%2.cmd
 if exist "%pubout%" del "%pubout%"
-call :appendgroup %type%
-call :appendgroup core
-if defined depreciated call :appendgroup depreciated
+if exist assemble\*.cmd del assemble\*.cmd 
+if defined depreciated copy depreciated\*.cmd assemble\*.cmd
+copy core\*.cmd assemble\*.cmd
+copy /y %type%\*.cmd assemble\*.cmd
+call :appendgroup assemble
 goto :eof
 
 :loopfiles
@@ -25,7 +27,7 @@ set comment=%~3
 if not defined action echo Missing action parameter & goto :eof
 if not defined basedir echo Missing basedir parameter & goto :eof
 if defined comment echo %comment%
-FOR /F " delims=" %%s IN ('dir /b /a:-d /o:n %basedir%') DO call :%action% "%%s" %~2
+FOR /F " delims=" %%s IN ('dir /b /a:-d /o:n %basedir%\*.cmd') DO call :%action% "%%s" %~2
 if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%
 goto :eof
 
@@ -35,7 +37,7 @@ echo     %~1 function
 goto :eof
 
 :appendgroup
-call :separator %~1
+rem call :separator %~1
 echo added %~1 functions ==================
 call :loopfiles appendfile %~1
 goto :eof
