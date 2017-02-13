@@ -1,5 +1,5 @@
 :drivepath
-:: Description: returns the drive and path from a full drive:\path\filename
+:: Description: returns the drive and path from a full drive:\path\filename\
 :: Class: command - parameter manipulation
 :: Required parameters:
 :: Group type: parameter manipulation

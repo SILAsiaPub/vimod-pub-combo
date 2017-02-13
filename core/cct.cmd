@@ -19,7 +19,7 @@ if defined masterdebug call :funcdebug %0
 set script=%~1
 if not defined script echo CCT missing! & goto :eof
 call :infile "%~2"
-if defined missinginput echo missing input file & goto :eof
+if not defined infile echo missing input file & goto :eof
 if not exist "%ccw32%" echo missing ccw32.exe file & goto :eof
 set scriptout=%script:.cct,=_%
 call :inccount
@@ -28,11 +28,14 @@ set basepath=%cd%
 rem if not defined ccw32 set ccw32=ccw32
 set curcommand="%ccw32%" %cctparam% -t "%script%" -o "%outfile%" "%infile%"
 call :before
+call :drive "%cctpath%"
+%drive%
 cd %cctpath%
 %curcommand%
+call :drive "%basepath%"
+%drive%
 cd %basepath%
 call :after "Consistent Changes"
-::
 if defined masterdebug call :funcdebug %0 end
 goto :eof
 
