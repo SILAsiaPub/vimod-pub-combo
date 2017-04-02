@@ -1,5 +1,3 @@
-rem Menu control function ==============================================
-
 :menu
 :: Description: starts a menu
 :: Revised: 2016-05-04
