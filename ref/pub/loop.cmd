@@ -31,7 +31,7 @@ if "%looptype%" == "listinfile" (
 )
 rem the string type is used to process a space sepparated string.
 if "%looptype%" == "string" (
-      FOR /F "%foroptions%" %%s IN (%string%) DO call :%function% "%%s"
+      FOR /F "%foroptions%" %%s IN ("%string%") DO call :%function% "%%s"
 )
 rem clear function and tasklist variables in case of later use.
 set function=
