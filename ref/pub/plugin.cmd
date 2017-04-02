@@ -2,6 +2,7 @@
 
 
 :plugin
+:: Depreciated: not used. Just create a tasklist to cusmoize a new file-operator
 :: Description: used to access external plugins
 :: Class: command - external - extend
 :: Optional preset variables:
@@ -29,7 +30,6 @@ set curcommand=call plugins\%plugin%
 call :before
 %curcommand%
 call :after "%plugin% plugin complete"
-if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%
-goto :eof
+if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%goto :eof
 
 
