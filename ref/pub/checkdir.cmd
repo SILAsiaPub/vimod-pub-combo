@@ -20,12 +20,12 @@ set report=Checking dir %dir%
 if exist "%dir%" (
       echo . . . Found! %dir% >>%projectlog%
 ) else (
-    rem call :removecommonatstart dirout "%dir%"
-    if defined echodirnotfound echo Creating . . . %dirout%
+    if defined echodirnotfound echo Creating . . . %dir:~-20%
     echo . . . not found. %dir% >>%projectlog%
     echo mkdir %dir% >>%projectlog%
     mkdir "%dir%"
 )
-if defined masterdebug call :funcdebug %0 endgoto :eof
+if defined masterdebug call :funcdebug %0 end
+goto :eof
 
 

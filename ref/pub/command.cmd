@@ -1,9 +1,6 @@
-
-
-rem built in commandline functions =============================================
 :command
 :: Description: A way of passing any commnand from a tasklist. It does not use infile and outfile.
-:: Usage: call :usercommand "copy /y 'c:\patha\file.txt' 'c:\pathb\file.txt'" ["path to run  command in"   "output file to test for"]
+:: Usage: call :command "copy /y 'c:\patha\file.txt' 'c:\pathb\file.txt'" ["path to run  command in"   "output file to test for"]
 :: Limitations: When command line needs single quote.
 :: Required parameters:
 :: curcommand
@@ -32,13 +29,14 @@ if defined testoutfile (
   if "%commandpath%" neq "" %drive%
   if defined commandpath cd "%commandpath%"
   call :before
-  %curcommand%
+  call %curcommand%
   call :after
   if defined commandpath cd "%basepath%"
 ) else (
   if defined echousercommand echo %curcommand%
   %curcommand%
 )
-if defined masterdebug call :funcdebug %0 endgoto :eof
+if defined masterdebug call :funcdebug %0 end
+goto :eof
 
 

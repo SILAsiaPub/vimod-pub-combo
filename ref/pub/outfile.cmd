@@ -9,13 +9,16 @@
 if defined debugdefinefunc echo %beginfuncstring% %0 %debugstack% %beginfuncstringtail%
 set testoutfile=%~1
 set defaultoutfile=%~2
-if "%testoutfile%" == "" (
+if defined testoutfile(
+  set outfile=%testoutfile%
+) else if defined (
 set outfile=%defaultoutfile%
 ) else (
-set outfile=%testoutfile%
+  set outfile=%projectpath%\xml\temp.xml
 )
 call :drivepath "%outfile%"
 call :checkdir "%drivepath%"
-if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%goto :eof
+if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%
+goto :eof
 
 

@@ -7,7 +7,6 @@
 :: curcommand
 :: Optional preset variables:
 :: outfile
-:: curcommand
 :: writebat
 :: Optional variables:
 :: echooff
