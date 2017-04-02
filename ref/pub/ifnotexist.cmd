@@ -36,7 +36,7 @@ if not exist  "%testfile%" (
   if "%action%" == "report" call :echolog "File not found! %testfile% - %param3%"
   if "%action%" == "recover" call :echolog "File not found! %testfile% - %param3%"  & goto :eof
   if "%action%" == "command" call :echolog "File not found! %testfile%"  & call :command "%param3%" "%param4%"
-  if "%action%" == "tasklist" call :echolog "File not found! %testfile%" & call :tasklist "%tasklist%" "%param4%"
+  if "%action%" == "tasklist" call :echolog "File not found! %testfile%" & call :tasklist "%param3%" "%param4%"
   if "%action%" == "func" call :echolog "File not found! %testfile%"     & call :%param3% "%param4%" "%param5%"
   if "%action%" == "createfile" call :echolog "File not found! %testfile%" Create empty file.    & echo. > "%testfile%"
   if "%action%" == "fatal" (
