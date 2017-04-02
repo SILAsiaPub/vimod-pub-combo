@@ -13,17 +13,13 @@
 :: funcdebug
 :: * - Maybe any function but most likely a tasklist
 if defined masterdebug call :funcdebug %0
-if "%~1" neq "" set action=%~1
-if "%~2" neq "" set fileset=%~2
-if "%~3" neq "" set comment=%~3
+set action=%~1
+set fileset=%~2
+set comment=%~3
 if not defined action echo Missing action parameter & goto :eof
 if not defined fileset echo Missing fileset parameter & goto :eof
-echo %comment%
-::echo on
+if defined comment echo %comment%
 FOR /F %%s IN (%fileset%) DO call :%action% %%s
-set action=
-set fileset=
-set comment=
 if defined masterdebug call :funcdebug %0 endgoto :eof
 
 
