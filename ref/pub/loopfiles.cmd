@@ -12,9 +12,10 @@
 if defined debugdefinefunc echo %beginfuncstring% %0 %debugstack% %beginfuncstringtail%
 set action=%~1
 set filespec=%~2
+set comment=%~3
 if not defined action echo Missing action parameter & goto :eof
 if not defined filespec echo Missing filespec parameter & goto :eof
-if "%~3" neq "" echo %~3
+if defined comment echo %comment%
 FOR /F " delims=" %%s IN ('dir /b /a:-d /o:n %filespec%') DO call :%action% "%%s"
 if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%goto :eof
 
