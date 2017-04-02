@@ -19,8 +19,9 @@ if defined errorsuspendprocessing goto :eof
 if defined masterdebug call :funcdebug %0
 call :inccount
 set command=%~1
+set out=%~2
 if not defined command echo missing command & goto :eof
-call :outfile "%~2" "%projectpath%\xml\%pcode%-%count%-command2file.xml"
+call :outfile "%out%" "%projectpath%\xml\%pcode%-%count%-command2file.xml"
 set commandpath=%~3
 set append=%~4
 rem the following is used for the feed back but not for the actual command
