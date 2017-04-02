@@ -15,8 +15,8 @@ if defined masterdebug call :funcdebug %0
 if "%~1" neq "" set action=%~1
 if "%~2" neq "" set list=%~2
 if "%~3" neq "" set comment=%~3
-if defined action echo missing action parameter & goto :eof
-if defined list echo missing list parameter & goto :eof
+if not defined action echo missing action parameter & goto :eof
+if not defined list echo missing list parameter & goto :eof
 echo "%comment%"
 ::echo on
 FOR /F %%s IN ('%list%') DO call :%action% "%%s"
