@@ -75,7 +75,6 @@ if "%overridetype%" == "debug" (
     @echo Usage: pub menu pathtomenu/project.menu
     @echo Usage: pub debug funcname [parameters]
   )
-) 
-goto :eof
+) goto :eof
 
 
