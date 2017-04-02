@@ -6,9 +6,9 @@
 @echo off
 @if defined debugfuncdebug @echo on
 set entryfunc=%~1
+set debugend=%~2
 if not defined entryfunc echo entryfunc is missing, skipping this function & goto :eof
 set testfunc=debug%entryfunc:~1%
-set debugend=%~2
 if "%debugend%" == "end" (
   set debugstack=%debugstack:~1%
   set nextdebug=%debugstack:~0,1%

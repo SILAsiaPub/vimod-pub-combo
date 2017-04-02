@@ -19,7 +19,7 @@ if defined masterdebug call :funcdebug %0
 set script=%~1
 if not defined script echo CCT missing! & goto :eof
 call :infile "%~2"
-if not defined infile echo missing input file & goto :eof
+if defined missinginput echo missing input file & goto :eof
 if not exist "%ccw32%" echo missing ccw32.exe file & goto :eof
 set scriptout=%script:.cct,=_%
 call :inccount

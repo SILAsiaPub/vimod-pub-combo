@@ -18,7 +18,7 @@ if not defined action echo Missing action parameter & goto :eof
 if not defined string echo Missing string parameter & goto :eof
 echo %comment%
 ::echo on
-FOR %%s IN (%string%) DO call :%action% %%s
+FOR /F "delims= " %%s IN ("%string%") DO call :%action% %%s& echo param %%s
 rem clear variables
 set action=
 set string=
