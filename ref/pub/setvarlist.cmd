@@ -1,9 +1,8 @@
+
+
+
 :setvarlist
 :: depreciated: use var
-call :var "%~1" "%~2"
-goto :eof
-
-
-
+call :var "%~1" "%~2"goto :eof
 
 

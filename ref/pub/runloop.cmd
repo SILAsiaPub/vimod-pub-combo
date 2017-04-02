@@ -1,3 +1,5 @@
+
+
 :runloop
 :: Description: run loop with parameters
 :: Class: command - loop - depreciated
@@ -12,7 +14,6 @@ set list=%~3
 set comment=%~4
 set string=%string:'="%
 call :%looptype%
-if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%
-goto :eof
+if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%goto :eof
 
 

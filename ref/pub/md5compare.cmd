@@ -26,7 +26,6 @@ if exist  "%cd%\logs\project-tasks-last-md5.txt" (
 )
 del "%cd%\logs\project-tasks-last-md5.txt"
 ren "%cd%\logs\project-tasks-cur-md5.txt" "project-tasks-last-md5.txt"
-if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%
-goto :eof
+if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%goto :eof
 
 

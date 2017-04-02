@@ -23,7 +23,6 @@ FOR /L %%l IN (0,1,100) DO if not defined notequal (
       ) else (
       goto :eof
       )
-if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%
-goto :eof
+if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%goto :eof
 
 
