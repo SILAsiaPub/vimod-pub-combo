@@ -14,6 +14,8 @@ set outfile=%defaultoutfile%
 ) else (
 set outfile=%testoutfile%
 )
+call :drivepath "%outfile%"
+call :checkdir "%drivepath%"
 if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%goto :eof
 
 
