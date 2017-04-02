@@ -1,5 +1,6 @@
 
 
+
 :setup
 :: Description: sets variables for the batch file
 :: Revised: 2016-05-04
@@ -19,14 +20,9 @@ set endfuncstring=-------------------------------------- end func
 rem check if logs directory exist and create if not there  DO NOT change to checkdir
 if not exist "%cd%\logs" md "%cd%\logs"
 
-rem Get the date format from the Registery: 0=US 1=AU 2=iso
-set KEY_DATE="HKCU\Control Panel\International"
-FOR /F "usebackq skip=2 tokens=3" %%A IN (`REG QUERY %KEY_DATE% /v iDate`) DO set dateformat=%%A
-rem get the date separator: / or -
-FOR /F "usebackq skip=2 tokens=3" %%A IN (`REG QUERY %KEY_DATE% /v sDate`) DO set dateseparator=%%A
-rem get the time separator: : or ?
-FOR /F "usebackq skip=2 tokens=3" %%A IN (`REG QUERY %KEY_DATE% /v sTime`) DO set timeseparator=%%A
+
 rem set project log file name by date
+call :detectdateformat
 call :date
 set projectlog=logs\%curdate%-build.log
 
@@ -50,7 +46,6 @@ if exist setup-pub\my.settings if not defined skipsettings call :variableslist s
 rem if not defined java call :testjava
 set classpath=%classpath%;%extendclasspath%
 call :checkdir %cd%\data\logs
-if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%
-goto :eof
+if defined debugdefinefunc echo %endfuncstring% %0 %debugstack%goto :eof
 
 
