@@ -2,7 +2,7 @@
 
 :command2file
 :: Description: Used with commands that only give stdout, so they can be captued in a file.
-:: Class: command - dos - to file
+:: Usage: call :command2file "copy /y 'c:\patha\file.txt' 'c:\pathb\file.txt'" [[["output file to test for"]   "path to run  command in"] append]
 :: Required parameters:
 :: command
 :: outfile
@@ -52,6 +52,7 @@ if "%commandpath%" neq "" (
   set dive=
 )
 call :after "command with stdout %curcommand% complete"
-if defined masterdebug call :funcdebug %0 endgoto :eof
+if defined masterdebug call :funcdebug %0 end
+goto :eof
 
 
