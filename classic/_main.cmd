@@ -5,8 +5,6 @@
 :: Created: 2012-03
 :: Last Modified: 2016-010-12
 :: Source: https://github.com/silasiapub/vimod-pub
-:: Source: https://github.com/silasiapub/vimod-pub-solo
-:: Source: https://github.com/silasiapub/vimod-pub-global
 :: Commandline startup options:
 :: pub  - normal usage for menu starting at the data root.
 :: pub tasklist tasklistname.tasks -  process a particular tasklist, no menus used. Used with Electron Vimod-Pub GUI
