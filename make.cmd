@@ -1,7 +1,7 @@
 @echo off
 set type=%1
 set depreciated=%2
-if not defined type echo You must specify classic, global or solo as the first parameter. & goto :eof
+if not defined type call :uifallback
 set pubout=tests\pub-%type%%2.cmd
 if exist "%pubout%" del "%pubout%"
 if exist assemble\*.cmd del assemble\*.cmd 
@@ -10,6 +10,14 @@ copy core\*.cmd assemble\*.cmd
 copy /y %type%\*.cmd assemble\*.cmd
 call :appendgroup assemble
 goto :eof
+
+:uifallback
+rem make sure variables are set
+if not defined site echo usage with parameters: make (classic or global or solo) &echo.
+if not defined site echo You must specify a project name.&set /P type=Enter type to build: 
+if not defined site set type=classic
+goto :eof
+
 
 :loopfiles
 :: Description: Loops through all files in a directory
